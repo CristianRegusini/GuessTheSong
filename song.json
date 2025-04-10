@@ -1,0 +1,137 @@
+{
+  "canzoni": [
+    {
+      "titolo": "La police",
+      "artista": "Yunes LaGrintaa",
+      "anno": 2025,
+      "strofa": "Chi lo diceva che saremo qui sopra un Porsche Cayenne"
+    },
+    {
+      "titolo": "Ferro di  Čechov",
+      "artista": "Kid Yugi",
+      "anno": 2022,
+      "strofa": "Al ferro di Čechov non serve un mirino, sto con la morte e la vita in un threesome"
+    },
+    {
+      "titolo": "Mogio",
+      "artista": "18k",
+      "featuring": "Kid Yugi",
+      "anno": 2023,
+      "strofa": "Yo, ripulisco soldi con il mocio, contro Dio come Jojo, il Cristo della strada, inchiodatemi ad un incrocio, il diavolo è mio socio, ketamina mi dissocio"
+    },
+    {
+      "titolo": "Sogni di Carta",
+      "artista": "Elianna",
+      "anno": 2012,
+      "strofa": "Sogni di carta che volano via, nel vento che ci porta lontano, verso una nuova realtà."
+    },
+    {
+      "titolo": "Sotto la Pioggia",
+      "artista": "Gabriele Verde",
+      "anno": 2016,
+      "strofa": "Sotto la pioggia ti cerco ancora, ogni goccia è un ricordo che non posso dimenticare."
+    },
+    {
+      "titolo": "Notti in Bianco",
+      "artista": "Giulia Azzurra",
+      "anno": 2018,
+      "strofa": "Notti in bianco a parlare di sogni, a volte è più facile credere a quello che non possiamo vedere."
+    },
+    {
+      "titolo": "Voci nel Silenzio",
+      "artista": "Marco Giordano",
+      "anno": 2017,
+      "strofa": "Le voci nel silenzio parlano di noi, storie di amori che non hanno mai fine."
+    },
+    {
+      "titolo": "La Strada della Vita",
+      "artista": "Alessandra Forte",
+      "anno": 2019,
+      "strofa": "Siamo sulla strada della vita, tra alti e bassi, cercando il nostro cammino, senza mai fermarci."
+    },
+    {
+      "titolo": "Riflessi di Luna",
+      "artista": "Luca Marini",
+      "anno": 2020,
+      "strofa": "Sotto il cielo di luna vedo il tuo sorriso, riflessi di un amore che non finirà mai."
+    },
+    {
+      "titolo": "Ancora un Giorno",
+      "artista": "Simona Lupi",
+      "anno": 2021,
+      "strofa": "Ancora un giorno senza te, ma continuo a sperare che tu torni da me."
+    },
+    {
+      "titolo": "Pelle d'Oca",
+      "artista": "Francesco De Angelis",
+      "anno": 2022,
+      "strofa": "Ogni volta che ti guardo, ho la pelle d'oca, non riesco a spiegare cosa succede nel cuore."
+    },
+    {
+      "titolo": "Ricordi di un Amore",
+      "artista": "Claudia Zeno",
+      "anno": 2011,
+      "strofa": "Ricordi di un amore che non tornerà, ma che vive dentro di me, ogni volta che ti penso."
+    },
+    {
+      "titolo": "Giorni di Sole",
+      "artista": "Paolo Morandi",
+      "anno": 2014,
+      "strofa": "Giorni di sole, niente più pioggia, insieme a te, mi sembra di volare."
+    },
+    {
+      "titolo": "Sogno Imperfetto",
+      "artista": "Elena Grassi",
+      "anno": 2013,
+      "strofa": "Un sogno imperfetto che voglio vivere, anche se la vita ci separa, ti troverò comunque."
+    },
+    {
+      "titolo": "L'Ultima Danza",
+      "artista": "Antonio Bianchi",
+      "anno": 2016,
+      "strofa": "L'ultima danza sotto le luci della città, voglio ricordare questo momento, non mi scorderò mai di te."
+    },
+    {
+      "titolo": "Cuore di Vetro",
+      "artista": "Valentina Fiore",
+      "anno": 2021,
+      "strofa": "Il mio cuore è di vetro, fragile ma puro, e ti regalerò ogni battito, per ogni sogno che avremo insieme."
+    },
+    {
+      "titolo": "Nuove Ali",
+      "artista": "Stefano D'Angelo",
+      "anno": 2018,
+      "strofa": "Nuove ali per volare via, lontano da tutto ciò che ci ferisce, verso un mondo migliore."
+    },
+    {
+      "titolo": "Fiori d'Aprile",
+      "artista": "Sara Bianchi",
+      "anno": 2020,
+      "strofa": "I fiori d'aprile sono come i tuoi occhi, che sbocciano ogni volta che mi guardi."
+    },
+    {
+      "titolo": "L'Abbraccio del Mare",
+      "artista": "Carlo Giacomo",
+      "anno": 2015,
+      "strofa": "L'abbraccio del mare è quello che sento quando sei con me, tutto il resto scompare."
+    },
+    {
+      "titolo": "Dove Sei",
+      "artista": "Anna Sofia",
+      "anno": 2014,
+      "strofa": "Dove sei, quando il cuore chiede la tua presenza? Ogni minuto senza te è una lunga attesa."
+    },
+    {
+      "titolo": "Tra le Nuvole",
+      "artista": "Marco Costa",
+      "anno": 2019,
+      "strofa": "Voliamo tra le nuvole, dove non ci sono limiti, solo sogni da realizzare insieme."
+    },
+    {
+      "titolo": "Il Nostro Tempo",
+      "artista": "Federico Verdi",
+      "anno": 2021,
+      "strofa": "Questo è il nostro tempo, l'ora di amare e di vivere senza paura, insieme per sempre."
+    }
+  ]
+}
