@@ -1,18 +1,21 @@
 {
   "canzoni": [
     {
+      "canzone_n": 1, 
       "titolo": "La police",
       "artista": "Yunes LaGrintaa",
       "anno": 2025,
       "strofa": "Chi lo diceva che saremo qui sopra un Porsche Cayenne"
     },
     {
-      "titolo": "Ferro di  Čechov",
+      "canzone_n": 2, 
+      "titolo": "Ferro di Čechov",
       "artista": "Kid Yugi",
       "anno": 2022,
       "strofa": "Al ferro di Čechov non serve un mirino, sto con la morte e la vita in un threesome"
     },
     {
+      "canzone_n": 3, 
       "titolo": "Mogio",
       "artista": "18k",
       "featuring": "Kid Yugi",
@@ -20,118 +23,143 @@
       "strofa": "Yo, ripulisco soldi con il mocio, contro Dio come Jojo, il Cristo della strada, inchiodatemi ad un incrocio, il diavolo è mio socio, ketamina mi dissocio"
     },
     {
-      "titolo": "Sogni di Carta",
-      "artista": "Elianna",
-      "anno": 2012,
-      "strofa": "Sogni di carta che volano via, nel vento che ci porta lontano, verso una nuova realtà."
+      "canzone_n": 4, 
+      "titolo": "Albachiara",
+      "artista": "Vasco Rossi",
+      "anno": 1979,
+      "strofa": "Ti addormenti di sera, ti risvegli col sole, sei chiara come un alba, sei fresca come l'aria"
     },
     {
-      "titolo": "Sotto la Pioggia",
-      "artista": "Gabriele Verde",
-      "anno": 2016,
-      "strofa": "Sotto la pioggia ti cerco ancora, ogni goccia è un ricordo che non posso dimenticare."
-    },
-    {
-      "titolo": "Notti in Bianco",
-      "artista": "Giulia Azzurra",
-      "anno": 2018,
-      "strofa": "Notti in bianco a parlare di sogni, a volte è più facile credere a quello che non possiamo vedere."
-    },
-    {
-      "titolo": "Voci nel Silenzio",
-      "artista": "Marco Giordano",
-      "anno": 2017,
-      "strofa": "Le voci nel silenzio parlano di noi, storie di amori che non hanno mai fine."
-    },
-    {
-      "titolo": "La Strada della Vita",
-      "artista": "Alessandra Forte",
-      "anno": 2019,
-      "strofa": "Siamo sulla strada della vita, tra alti e bassi, cercando il nostro cammino, senza mai fermarci."
-    },
-    {
-      "titolo": "Riflessi di Luna",
-      "artista": "Luca Marini",
-      "anno": 2020,
-      "strofa": "Sotto il cielo di luna vedo il tuo sorriso, riflessi di un amore che non finirà mai."
-    },
-    {
-      "titolo": "Ancora un Giorno",
-      "artista": "Simona Lupi",
+      "canzone_n": 5, 
+      "titolo": "Dolce Vita",
+      "artista": "Shiva",
       "anno": 2021,
-      "strofa": "Ancora un giorno senza te, ma continuo a sperare che tu torni da me."
+      "strofa": "Quasi niente si aggiusta da solo, per questo sono ancora sopra il bordo, dentro al back lei mi chiama 'tesoro', grazie al cazzo ho 100 mila sul collo"
     },
     {
-      "titolo": "Pelle d'Oca",
-      "artista": "Francesco De Angelis",
-      "anno": 2022,
-      "strofa": "Ogni volta che ti guardo, ho la pelle d'oca, non riesco a spiegare cosa succede nel cuore."
-    },
-    {
-      "titolo": "Ricordi di un Amore",
-      "artista": "Claudia Zeno",
-      "anno": 2011,
-      "strofa": "Ricordi di un amore che non tornerà, ma che vive dentro di me, ogni volta che ti penso."
-    },
-    {
-      "titolo": "Giorni di Sole",
-      "artista": "Paolo Morandi",
-      "anno": 2014,
-      "strofa": "Giorni di sole, niente più pioggia, insieme a te, mi sembra di volare."
-    },
-    {
-      "titolo": "Sogno Imperfetto",
-      "artista": "Elena Grassi",
+      "canzone_n": 6, 
+      "titolo": "L'universo tranne noi",
+      "artista": "Max Pezzali",
       "anno": 2013,
-      "strofa": "Un sogno imperfetto che voglio vivere, anche se la vita ci separa, ti troverò comunque."
+      "strofa": "Eravamo quel che tutti sognano, quell'amore che i cantanti cantano, tanto forte, potente ed immenso che, sembra esagerato ed impossibile"
     },
     {
-      "titolo": "L'Ultima Danza",
-      "artista": "Antonio Bianchi",
-      "anno": 2016,
-      "strofa": "L'ultima danza sotto le luci della città, voglio ricordare questo momento, non mi scorderò mai di te."
+      "canzone_n": 7, 
+      "titolo": "Cella 4",
+      "artista": "Baby Gang",
+      "anno": 2023,
+      "strofa": "Chiuso dentro il bagno fumo dry e Maria, grido forte uagliò, mi rispondo uaglià, non passo in radio ma passeggio all'aria"
     },
     {
-      "titolo": "Cuore di Vetro",
-      "artista": "Valentina Fiore",
+      "canzone_n": 8, 
+      "titolo": "Sotto controllo",
+      "artista": "Silent Bob",
       "anno": 2021,
-      "strofa": "Il mio cuore è di vetro, fragile ma puro, e ti regalerò ogni battito, per ogni sogno che avremo insieme."
+      "strofa": "Ciocio c'ha un'arma in casa, non si sa mai che accada, tu invece hai un'arma in casa, ma è quella di ordinanza, sei sbirro fino al midollo, finto balordo"
     },
     {
-      "titolo": "Nuove Ali",
-      "artista": "Stefano D'Angelo",
-      "anno": 2018,
-      "strofa": "Nuove ali per volare via, lontano da tutto ciò che ci ferisce, verso un mondo migliore."
+      "canzone_n": 9, 
+      "titolo": "Lacrime",
+      "artista": "Ghali",
+      "anno": 2017,
+      "strofa": "Questo pezzo è per te che arriverai da un giorno all'altro, l'avrò già messo nell'album, l'avrò già suonato su un palco"
     },
     {
-      "titolo": "Fiori d'Aprile",
-      "artista": "Sara Bianchi",
-      "anno": 2020,
-      "strofa": "I fiori d'aprile sono come i tuoi occhi, che sbocciano ogni volta che mi guardi."
+      "canzone_n": 10, 
+      "titolo": "40 gradi",
+      "artista": "Simba La Rue",
+      "anno": 2024,
+      "strofa": "Ho comprato due tedesche nel giro di due anni, ti parli-parli-parli, parlo solo di guadagni"
     },
     {
-      "titolo": "L'Abbraccio del Mare",
-      "artista": "Carlo Giacomo",
-      "anno": 2015,
-      "strofa": "L'abbraccio del mare è quello che sento quando sei con me, tutto il resto scompare."
+      "canzone_n": 11, 
+      "titolo": "no vabbè",
+      "artista": "Rose Villain",
+      "featuring": "Lazza",
+      "anno": 2025,
+      "strofa": "3kg nelle palle, sono le palle, le ho sempre avute quadre, chiedi a mia madre, dovrei chiamarti Watson, sei elementare"
     },
     {
-      "titolo": "Dove Sei",
-      "artista": "Anna Sofia",
-      "anno": 2014,
-      "strofa": "Dove sei, quando il cuore chiede la tua presenza? Ogni minuto senza te è una lunga attesa."
+      "canzone_n": 12, 
+      "titolo": "Intro (La Bella Vita)",
+      "artista": "Artie 5ive",
+      "anno": 2025,
+      "strofa": "La mia vita è un film, ho imparato a recitare, mentre piango sotto gli occhiali da sole di Versace"
     },
     {
-      "titolo": "Tra le Nuvole",
-      "artista": "Marco Costa",
-      "anno": 2019,
-      "strofa": "Voliamo tra le nuvole, dove non ci sono limiti, solo sogni da realizzare insieme."
+      "canzone_n": 13, 
+      "titolo": "We Are The Champions",
+      "artista": "Queen",
+      "anno": 1977,
+      "strofa": "We are the champions, my friends, And we'll keep on fighting till the end"
     },
     {
-      "titolo": "Il Nostro Tempo",
-      "artista": "Federico Verdi",
+      "canzone_n": 14, 
+      "titolo": "Lavapiatti",
+      "artista": "Rrari dal Tacco",
+      "anno": 2025,
+      "strofa": "A nessuno piace sporcarsi le mani, quindi non è con chi mangi ma con chi lavi i piatti"
+    },
+    {
+      "canzone_n": 15, 
+      "titolo": "Emoji della Traphouse",
+      "artista": "Tony Boy",
+      "featuring": "Slings", 
       "anno": 2021,
-      "strofa": "Questo è il nostro tempo, l'ora di amare e di vivere senza paura, insieme per sempre."
+      "strofa": "O-O-Off White sembro un medico, whoof-whoof sono un animal, big drip come Quavo, new shoes non le lavo"
+    },
+    {
+      "canzone_n": 16, 
+      "titolo": "Adiòs",
+      "artista": "Fre_nky",
+      "featuring": "Yunes LaGrintaa",
+      "anno": 2021,
+      "strofa": "Corro con le Asics, oh, ma bébé, non avevo chance, giro tout la nuit, mamma, désolé se rischio il gabbio"
+    },
+    {
+      "canzone_n": 17, 
+      "titolo": "Drip",
+      "artista": "Néza",
+      "featuring": "Simba La Rue",
+      "anno": 2024,
+      "strofa": "Ho l'amico che è psicopatico, e un altro si riempie di farmaci, i miei la danno ancora ai tossici, siringhe e bottiglie di plastica"
+    },
+    {
+      "canzone_n": 18, 
+      "titolo": "Loki",
+      "artista": "Kid Yugi",
+      "anno": 2024,
+      "strofa": "A mezzanotte in punto lui scende dal camino, non è vestito di rosso, non è grosso e col sorriso"
+    },
+    {
+      "canzone_n": 19, 
+      "titolo": "Amore Criminel",
+      "artista": "Néza",
+      "featuring": "Baby Gang",
+      "anno": 2025,
+      "strofa": "Siamo sopra un Lamborghi', seicento cavalli, Ho dietro la police, dico, 'Vabbuò, vabbè', Mi chiamano 'Zaccari', gli dico, 'Mollami'"
+    },
+    {
+      "canzone_n": 20, 
+      "titolo": "Akrapovič",
+      "artista": "Gué",
+      "featuring": "Artie 5ive",
+      "anno": 2025,
+      "strofa": "Per un poco di Whitney mi mostra la sua kitty, ma l'hanno vista tutti, a giudicare dagli iscritti, da tre isolati di distanza senti lo scarico, significa che sto arrivando carico, Хорошо"
+    },
+    {
+      "canzone_n": 21, 
+      "titolo": "Bella",
+      "artista": "Ernia",
+      "anno": 2017,
+      "strofa": "Quando è iniziata stavo steso fumando al soffitto, una mano sul petto appena sotto il mento, e finalmente un'po me ne stavo zitto, lei dorme mentre io guardo l'arredamento"
+    },
+    {
+      "canzone_n": , 
+      "titolo": "",
+      "artista": "",
+      "anno": ,
+      "strofa": ""
     }
   ]
 }
