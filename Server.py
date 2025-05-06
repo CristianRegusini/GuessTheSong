@@ -3,10 +3,10 @@ import random
 import threading
 import socket
 
-#funzioni del per gestire file
 def carica_strofe(nome_file):
     with open(nome_file, 'r', encoding='utf-8') as file:
-        return json.load(file)
+        data = json.load(file)
+    return data["canzoni"]
 
 def carica_punteggi(nome_file):
     with open(nome_file, 'r', encoding='utf-8') as file:
@@ -16,26 +16,32 @@ def salva_punteggi(punteggi, nome_file):
     with open(nome_file, 'w', encoding='utf-8') as file:
         json.dump(punteggi, file, indent=4)
 
-#funzioni per il gioco
 def avvia_gioco(connessione, username, punteggi, strofe):
     while True:
         strofa_scelta = random.choice(strofe)
+        print(f"Inviando strofa: {strofa_scelta['strofa']}")  # Debug: vedi quale strofa stiamo inviando
 
+        # Invia la strofa al client
         connessione.sendall(f"\nIndovina artista, anno e featuring (se presente) di questa strofa:\n"
                             f"\"{strofa_scelta['strofa']}\"\n".encode('utf-8'))
 
+        # Chiedi le risposte al client
         connessione.sendall("Inserisci il nome dell'artista: ".encode('utf-8'))
         artista_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+        print(f"Risposta artista ricevuta: {artista_risposta}")  # Debug
 
         connessione.sendall("Inserisci l'anno: ".encode('utf-8'))
         anno_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+        print(f"Risposta anno ricevuta: {anno_risposta}")  # Debug
 
         connessione.sendall("Inserisci il featuring (o 'nessuno' se non c'è): ".encode('utf-8'))
         featuring_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+        print(f"Risposta featuring ricevuta: {featuring_risposta}")  # Debug
 
+        # Confronta le risposte con quelle corrette
         artista_corretta = strofa_scelta['artista'].lower()
         anno_corretta = str(strofa_scelta['anno'])
-        featuring_corretta = strofa_scelta['featuring'].lower() if strofa_scelta['featuring'] else "nessuno"
+        featuring_corretta = strofa_scelta['featuring'].lower() if strofa_scelta['featuring'] != "no" else "nessuno"
 
         risultati = []
         corrette = 0
@@ -56,64 +62,45 @@ def avvia_gioco(connessione, username, punteggi, strofe):
             risultati.append("Featuring corretto!")
             corrette += 1
         else:
-            risultati.append(f"Featuring sbagliato. Era: {strofa_scelta['featuring'] if strofa_scelta['featuring'] else 'nessuno'}")
+            risultati.append(f"Featuring sbagliato. Era: {strofa_scelta['featuring'] if strofa_scelta['featuring'] != 'no' else 'nessuno'}")
 
+        # Invia i risultati al client
         connessione.sendall("\n".join(risultati).encode('utf-8'))
 
+        # Se tutte le risposte sono corrette, aumenta il punteggio
         if corrette == 3:
             punteggi[username]['punteggio'] += 1
             salva_punteggi(punteggi, 'punteggi.json')
 
+        # Chiedi se vogliono continuare a giocare
         connessione.sendall("Vuoi continuare a giocare? (si/no): ".encode('utf-8'))
         risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+        print(f"Risposta continuazione: {risposta}")  # Debug
+
         if risposta != 'si':
             break
 
+    # Finale del gioco
     connessione.sendall(f"\nGrazie per aver giocato, {username}! Punteggio finale: {punteggi[username]['punteggio']}".encode('utf-8'))
 
-#gestione client
 def gestisci_client(connessione, indirizzo):
     print(f"Connessione stabilita con {indirizzo}")
-    connessione.sendall("Benvenuto! Procediamo con il login o la registrazione.\n".encode('utf-8'))
+    connessione.sendall("Benvenuto! Iniziamo subito a giocare!\n".encode('utf-8'))
 
     try:
-        strofe = carica_strofe('song.json')
-        punteggi = carica_punteggi('punteggi.json')
-        connessione.sendall("Inserisci username: ".encode('utf-8'))
-        username = connessione.recv(1024).decode('utf-8').strip()
+        strofe = carica_strofe('song.json')  # Carica le strofe da 'song.json'
+        punteggi = carica_punteggi('punteggi.json')  # Carica i punteggi
 
-        if username in punteggi:
-            connessione.sendall("Inserisci password: ".encode('utf-8'))
-            password = connessione.recv(1024).decode('utf-8').strip()
+        username = "giocatore"  # Usa un nome predefinito per il giocatore
 
-            if punteggi[username]['password'] == password:
-                connessione.sendall(f"Benvenuto {username}! Punteggio attuale: {punteggi[username]['punteggio']}\n".encode('utf-8'))
-                avvia_gioco(connessione, username, punteggi, strofe)
-            else:
-                connessione.sendall("Password errata. Connessione chiusa.".encode('utf-8'))
-                connessione.close()
-                return
-        else:
-            connessione.sendall("Utente non trovato. Vuoi registrarti? (si/no): ".encode('utf-8'))
-            risposta = connessione.recv(1024).decode('utf-8').strip().lower()
-
-            if risposta == 'no':
-                connessione.sendall("Connessione chiusa.".encode('utf-8'))
-                connessione.close()
-                return
-
-            connessione.sendall("Crea una password: ".encode('utf-8'))
-            nuova_password = connessione.recv(1024).decode('utf-8').strip()
-
+        if username not in punteggi:
             punteggi[username] = {
-                'password': nuova_password,
+                'password': '',  # Non è necessario gestire una password
                 'punteggio': 0
             }
-
             salva_punteggi(punteggi, 'punteggi.json')
-            connessione.sendall(f"Registrazione completata! Benvenuto {username}!\n".encode('utf-8'))
-            connessione.sendall(f"Punteggio attuale: {punteggi[username]['punteggio']}\n".encode('utf-8'))
-            avvia_gioco(connessione, username, punteggi, strofe)
+
+        avvia_gioco(connessione, username, punteggi, strofe)
 
     except Exception as e:
         print(f"Errore nella comunicazione con {indirizzo}: {e}")
@@ -121,7 +108,6 @@ def gestisci_client(connessione, indirizzo):
         connessione.close()
         print(f"Connessione con {indirizzo} chiusa")
 
-# --- Avvio del server ---
 def avvia_server():
     host = '127.0.0.1'
     port = 65432
