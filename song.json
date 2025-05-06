@@ -4,6 +4,7 @@
       "canzone_n": 1, 
       "titolo": "La police",
       "artista": "Yunes LaGrintaa",
+      "featuring": "no",
       "anno": 2025,
       "strofa": "Chi lo diceva che saremo qui sopra un Porsche Cayenne"
     },
@@ -11,6 +12,7 @@
       "canzone_n": 2, 
       "titolo": "Ferro di Čechov",
       "artista": "Kid Yugi",
+      "featuring": "no",
       "anno": 2022,
       "strofa": "Al ferro di Čechov non serve un mirino, sto con la morte e la vita in un threesome"
     },
@@ -26,6 +28,7 @@
       "canzone_n": 4, 
       "titolo": "Albachiara",
       "artista": "Vasco Rossi",
+      "featuring": "no",
       "anno": 1979,
       "strofa": "Ti addormenti di sera, ti risvegli col sole, sei chiara come un alba, sei fresca come l'aria"
     },
@@ -33,6 +36,7 @@
       "canzone_n": 5, 
       "titolo": "Dolce Vita",
       "artista": "Shiva",
+      "featuring": "no",
       "anno": 2021,
       "strofa": "Quasi niente si aggiusta da solo, per questo sono ancora sopra il bordo, dentro al back lei mi chiama 'tesoro', grazie al cazzo ho 100 mila sul collo"
     },
@@ -40,6 +44,7 @@
       "canzone_n": 6, 
       "titolo": "L'universo tranne noi",
       "artista": "Max Pezzali",
+      "featuring": "no",
       "anno": 2013,
       "strofa": "Eravamo quel che tutti sognano, quell'amore che i cantanti cantano, tanto forte, potente ed immenso che, sembra esagerato ed impossibile"
     },
@@ -47,6 +52,7 @@
       "canzone_n": 7, 
       "titolo": "Cella 4",
       "artista": "Baby Gang",
+      "featuring": "no",
       "anno": 2023,
       "strofa": "Chiuso dentro il bagno fumo dry e Maria, grido forte uagliò, mi rispondo uaglià, non passo in radio ma passeggio all'aria"
     },
@@ -54,6 +60,7 @@
       "canzone_n": 8, 
       "titolo": "Sotto controllo",
       "artista": "Silent Bob",
+      "featuring": "no",
       "anno": 2021,
       "strofa": "Ciocio c'ha un'arma in casa, non si sa mai che accada, tu invece hai un'arma in casa, ma è quella di ordinanza, sei sbirro fino al midollo, finto balordo"
     },
@@ -61,6 +68,7 @@
       "canzone_n": 9, 
       "titolo": "Lacrime",
       "artista": "Ghali",
+      "featuring": "no",
       "anno": 2017,
       "strofa": "Questo pezzo è per te che arriverai da un giorno all'altro, l'avrò già messo nell'album, l'avrò già suonato su un palco"
     },
@@ -68,6 +76,7 @@
       "canzone_n": 10, 
       "titolo": "40 gradi",
       "artista": "Simba La Rue",
+      "featuring": "no",
       "anno": 2024,
       "strofa": "Ho comprato due tedesche nel giro di due anni, tu parli-parli-parli, parlo solo di guadagni"
     },
@@ -83,6 +92,7 @@
       "canzone_n": 12, 
       "titolo": "Intro (La Bella Vita)",
       "artista": "Artie 5ive",
+      "featuring": "no",
       "anno": 2025,
       "strofa": "La mia vita è un film, ho imparato a recitare, mentre piango sotto gli occhiali da sole di Versace"
     },
@@ -90,6 +100,7 @@
       "canzone_n": 13, 
       "titolo": "We Are The Champions",
       "artista": "Queen",
+      "featuring": "no",
       "anno": 1977,
       "strofa": "We are the champions, my friends, And we'll keep on fighting till the end"
     },
@@ -97,6 +108,7 @@
       "canzone_n": 14, 
       "titolo": "Lavapiatti",
       "artista": "Rrari dal Tacco",
+      "featuring": "no",
       "anno": 2025,
       "strofa": "A nessuno piace sporcarsi le mani, quindi non è con chi mangi ma con chi lavi i piatti"
     },
@@ -128,6 +140,7 @@
       "canzone_n": 18, 
       "titolo": "Loki",
       "artista": "Kid Yugi",
+      "featuring": "no",
       "anno": 2024,
       "strofa": "A mezzanotte in punto lui scende dal camino, non è vestito di rosso, non è grosso e col sorriso"
     },
@@ -151,15 +164,9 @@
       "canzone_n": 21, 
       "titolo": "Bella",
       "artista": "Ernia",
+      "featuring": "no",
       "anno": 2017,
       "strofa": "Quando è iniziata stavo steso fumando al soffitto, una mano sul petto appena sotto il mento, e finalmente un'po me ne stavo zitto, lei dorme mentre io guardo l'arredamento"
-    },
-    {
-      "canzone_n": , 
-      "titolo": "",
-      "artista": "",
-      "anno": ,
-      "strofa": ""
     }
   ]
 }
