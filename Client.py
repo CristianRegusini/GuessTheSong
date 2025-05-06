@@ -1,8 +1,8 @@
 import socket
 
 def main():
-    host = '10.0.46.2'  # IP del server a cui collegarsi
-    port = 12345         # Porta del server
+    host = '127.0.0.1'  # IP del server a cui collegarsi
+    port = 65432         # Porta del server
 
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Crea un socket TCP/IP
     try:
@@ -11,7 +11,7 @@ def main():
 
         while True:
             # Leggi un messaggio da inviare
-            message = input("Inserisci il messaggio (digita 'exit' per uscire): ")
+            message = input()
             client_socket.sendall(message.encode())  # Invia il messaggio al server
 
             if message.lower() == 'exit':  # Se l'utente scrive 'exit', esce dal ciclo
