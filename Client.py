@@ -1,66 +1,42 @@
 import socket
 
 def main():
-    host = '127.0.0.1'  # IP del server a cui collegarsi
-    port = 65432         # Porta del server
+    host = '127.0.0.1'
+    port = 65432
 
-    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # Crea un socket TCP/IP
+    client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-        client_socket.connect((host, port))  # Connessione al server
-        print(f"Connesso a {host}:{port}")
+        client_socket.connect((host, port))
+        print(client_socket.recv(1024).decode('utf-8'))
 
-
+        username = input("Inserisci il tuo username: ")
+        client_socket.sendall(username.encode('utf-8'))
 
         while True:
+            print(client_socket.recv(1024).decode('utf-8'))  # Strofa
 
-            # Riceve la strofa dal server
-            strofa = client_socket.recv(1024).decode('utf-8')
-            print(strofa)
+            # Titolo
+            print(client_socket.recv(1024).decode('utf-8'))
+            client_socket.sendall(input().encode('utf-8'))
 
-            # Risposta titolo
-            title_question = client_socket.recv(1024).decode('utf-8')
-            print(title_question)
-            #title = input("inserisci il titolo")
-            title = input()
+            # Artista
+            print(client_socket.recv(1024).decode('utf-8'))
+            client_socket.sendall(input().encode('utf-8'))
 
-            #invia la risposta
-            client_socket.sendall(title.encode('utf-8'))
+            # Anno
+            print(client_socket.recv(1024).decode('utf-8'))
+            client_socket.sendall(input().encode('utf-8'))
 
-            # Riceve la richiesta per l'artista
-            artist_question = client_socket.recv(1024).decode('utf-8')
-            print(artist_question)
-            #artista = input("Inserire nome dell'artista: ")
-            artista = input()
+            # Featuring
+            print(client_socket.recv(1024).decode('utf-8'))
+            client_socket.sendall(input().encode('utf-8'))
 
-            # Invia la risposta dell'artista
-            client_socket.sendall(artista.encode('utf-8'))
+            # Risultati
+            print(client_socket.recv(4096).decode('utf-8'))
 
-            # Riceve la richiesta per l'anno
-            year_question = client_socket.recv(1024).decode('utf-8')
-            print(year_question)
-            #anno = input("Inserire anno : ")
-            anno = input()
-
-            # Invia la risposta dell'anno
-            client_socket.sendall(anno.encode('utf-8'))
-
-            # Riceve la richiesta per il featuring
-            featuring_question = client_socket.recv(1024).decode('utf-8')
-            print(featuring_question)
-            featuring = input()
-
-            # Invia la risposta del featuring
-            client_socket.sendall(featuring.encode('utf-8'))
-
-            # Riceve i risultati dal server
-            results = client_socket.recv(1024).decode('utf-8')
-            print(results)
-
-            # Chiede se il giocatore vuole continuare
-            continue_game = client_socket.recv(1024).decode('utf-8')
-            print(continue_game)
-            risposta = input("vuoi continuare? si/no")
-            # Invia la risposta per continuare
+            # Continuare
+            print(client_socket.recv(1024).decode('utf-8'))
+            risposta = input()
             client_socket.sendall(risposta.encode('utf-8'))
 
             if risposta.lower() == 'no':
@@ -68,10 +44,9 @@ def main():
                 break
 
     except Exception as e:
-        print(f"Errore: {e}")  # In caso di errore, lo stampa
-
+        print(f"Errore: {e}")
     finally:
-        client_socket.close()  # Chiude il socket (connessione)
+        client_socket.close()
 
 if __name__ == "__main__":
     main()
