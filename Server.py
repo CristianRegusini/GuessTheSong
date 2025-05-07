@@ -23,28 +23,42 @@ def avvia_gioco(connessione, username, punteggi, strofe):
 
         # Invia la strofa al client
         connessione.sendall(f"\nIndovina artista, anno e featuring (se presente) di questa strofa:\n"
-                            f"\"{strofa_scelta['strofa']}\"\n".encode('utf-8'))
+                             f"\"{strofa_scelta['strofa']}\"\n".encode('utf-8'))
 
-        # Chiedi le risposte al client
+        # Invia la richiesta per il titolo
+        connessione.sendall("Inserisci il titolo: ".encode('utf-8'))
+        title_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+        print(f"Risposta artista ricevuta: {title_risposta}")
+
+        # Invia la richiesta per l'artista
         connessione.sendall("Inserisci il nome dell'artista: ".encode('utf-8'))
         artista_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
         print(f"Risposta artista ricevuta: {artista_risposta}")  # Debug
 
+        # Invia la richiesta per l'anno
         connessione.sendall("Inserisci l'anno: ".encode('utf-8'))
         anno_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
         print(f"Risposta anno ricevuta: {anno_risposta}")  # Debug
 
-        connessione.sendall("Inserisci il featuring (o 'nessuno' se non c'è): ".encode('utf-8'))
+        # Invia la richiesta per il featuring
+        connessione.sendall("Inserisci il featuring o 'no' se non c'è): ".encode('utf-8'))
         featuring_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
         print(f"Risposta featuring ricevuta: {featuring_risposta}")  # Debug
 
         # Confronta le risposte con quelle corrette
+        title_corretto = strofa_scelta['titolo'].lower()
         artista_corretta = strofa_scelta['artista'].lower()
         anno_corretta = str(strofa_scelta['anno'])
-        featuring_corretta = strofa_scelta['featuring'].lower() if strofa_scelta['featuring'] != "no" else "nessuno"
+        featuring_corretta = strofa_scelta['featuring'].lower()
 
         risultati = []
         corrette = 0
+
+        if title_risposta == title_corretto:
+            risultati.append("Titolo canzone corretto!")
+            corrette += 1
+        else:
+            risultati.append(f"Titolo sbagliato. Era: {strofa_scelta['titolo']}")
 
         if artista_risposta == artista_corretta:
             risultati.append("Artista corretto!")
@@ -61,27 +75,28 @@ def avvia_gioco(connessione, username, punteggi, strofe):
         if featuring_risposta == featuring_corretta:
             risultati.append("Featuring corretto!")
             corrette += 1
-        else:
-            risultati.append(f"Featuring sbagliato. Era: {strofa_scelta['featuring'] if strofa_scelta['featuring'] != 'no' else 'nessuno'}")
+        else :
+            risultati.append(f"Featuring sbagliato. Era: {strofa_scelta['featuring']}")
 
         # Invia i risultati al client
         connessione.sendall("\n".join(risultati).encode('utf-8'))
 
         # Se tutte le risposte sono corrette, aumenta il punteggio
-        if corrette == 3:
-            punteggi[username]['punteggio'] += 1
-            salva_punteggi(punteggi, 'punteggi.json')
+        punteggi = corrette
+        punteggi[username]['punteggio'] += 1
+        salva_punteggi(punteggi, 'punteggi.json')
 
         # Chiedi se vogliono continuare a giocare
         connessione.sendall("Vuoi continuare a giocare? (si/no): ".encode('utf-8'))
         risposta = connessione.recv(1024).decode('utf-8').strip().lower()
         print(f"Risposta continuazione: {risposta}")  # Debug
 
-        if risposta != 'si':
+        if risposta == 'no':
             break
 
     # Finale del gioco
     connessione.sendall(f"\nGrazie per aver giocato, {username}! Punteggio finale: {punteggi[username]['punteggio']}".encode('utf-8'))
+    connessione.close()
 
 def gestisci_client(connessione, indirizzo):
     print(f"Connessione stabilita con {indirizzo}")
