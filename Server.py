@@ -20,83 +20,90 @@ def salva_punteggi(punteggi, nome_file):
         json.dump(punteggi, file, indent=4)
 
 def avvia_gioco(connessione, username, punteggi, strofe):
-    while True:
-        strofa_scelta = random.choice(strofe)
-        print(f"Inviando strofa: {strofa_scelta['strofa']}")
+    try:
+        while True:
+            strofa_scelta = random.choice(strofe)
+            print(f"Inviando strofa: {strofa_scelta['strofa']}")
 
-        connessione.sendall(f"\nIndovina artista, anno, titolo e featuring (se presente) di questa strofa:\n"
-                             f"\"{strofa_scelta['strofa']}\"\n".encode('utf-8'))
+            prompt = (
+                f"\nIndovina artista, anno, titolo e featuring (se presente) di questa strofa:\n"
+                f"\"{strofa_scelta['strofa']}\"\n"
+                f"Inserisci il titolo: "
+            )
+            connessione.sendall(prompt.encode('utf-8'))
+            title_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
 
-        connessione.sendall("Inserisci il titolo: ".encode('utf-8'))
-        title_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+            connessione.sendall("Inserisci l'artista: ".encode('utf-8'))
+            artista_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
 
-        connessione.sendall("Inserisci l'artista: ".encode('utf-8'))
-        artista_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+            connessione.sendall("Inserisci l'anno: ".encode('utf-8'))
+            anno_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
 
-        connessione.sendall("Inserisci l'anno: ".encode('utf-8'))
-        anno_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+            connessione.sendall("Inserisci il featuring (scrivi 'no' se non c'è): ".encode('utf-8'))
+            featuring_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
 
-        connessione.sendall("Inserisci il featuring (scrivi 'no' se non c'è): ".encode('utf-8'))
-        featuring_risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+            # Risposte corrette
+            title_corretto = strofa_scelta['titolo'].lower()
+            artista_corretta = strofa_scelta['artista'].lower()
+            anno_corretta = str(strofa_scelta['anno'])
+            featuring_corretta = strofa_scelta['featuring'].lower()
 
-        title_corretto = strofa_scelta['titolo'].lower()
-        artista_corretta = strofa_scelta['artista'].lower()
-        anno_corretta = str(strofa_scelta['anno'])
-        featuring_corretta = strofa_scelta['featuring'].lower()
+            if featuring_risposta in ['no', 'n', '', 'nessuno']:
+                featuring_risposta = ''
+            if featuring_corretta == 'no':
+                featuring_corretta = ''
 
-        # Normalizza "no" a stringa vuota
-        if featuring_risposta in ['no', 'n', '', 'nessuno']:
-            featuring_risposta = ''
-        if featuring_corretta == 'no':
-            featuring_corretta = ''
+            risultati = []
+            corrette = 0
 
-        risultati = []
-        corrette = 0
+            if title_risposta == title_corretto:
+                risultati.append("Titolo corretto!")
+                corrette += 1
+            else:
+                risultati.append(f"Titolo sbagliato. Era: {strofa_scelta['titolo']}")
 
-        if title_risposta == title_corretto:
-            risultati.append("Titolo corretto!")
-            corrette += 1
-        else:
-            risultati.append(f"Titolo sbagliato. Era: {strofa_scelta['titolo']}")
+            if artista_risposta == artista_corretta:
+                risultati.append("Artista corretto!")
+                corrette += 1
+            else:
+                risultati.append(f"Artista sbagliato. Era: {strofa_scelta['artista']}")
 
-        if artista_risposta == artista_corretta:
-            risultati.append("Artista corretto!")
-            corrette += 1
-        else:
-            risultati.append(f"Artista sbagliato. Era: {strofa_scelta['artista']}")
+            if anno_risposta == anno_corretta:
+                risultati.append("Anno corretto!")
+                corrette += 1
+            else:
+                risultati.append(f"Anno sbagliato. Era: {strofa_scelta['anno']}")
 
-        if anno_risposta == anno_corretta:
-            risultati.append("Anno corretto!")
-            corrette += 1
-        else:
-            risultati.append(f"Anno sbagliato. Era: {strofa_scelta['anno']}")
+            if featuring_risposta == featuring_corretta:
+                risultati.append("Featuring corretto!")
+                corrette += 1
+            else:
+                risultati.append(f"Featuring sbagliato. Era: {strofa_scelta['featuring']}")
 
-        if featuring_risposta == featuring_corretta:
-            risultati.append("Featuring corretto!")
-            corrette += 1
-        else:
-            risultati.append(f"Featuring sbagliato. Era: {strofa_scelta['featuring']}")
+            connessione.sendall(("\n" + "\n".join(risultati) + "\n").encode('utf-8'))
 
-        connessione.sendall("\n".join(risultati).encode('utf-8'))
+            punteggi[username]['punteggio'] += corrette
+            salva_punteggi(punteggi, 'punteggi.json')
 
-        # Aggiorna punteggio
-        punteggi[username]['punteggio'] += corrette
-        salva_punteggi(punteggi, 'punteggi.json')
+            connessione.sendall("Vuoi continuare a giocare? (si/no): ".encode('utf-8'))
+            risposta = connessione.recv(1024).decode('utf-8').strip().lower()
+            if risposta == 'no':
+                break
 
-        connessione.sendall("Vuoi continuare a giocare? (si/no): ".encode('utf-8'))
-        risposta = connessione.recv(1024).decode('utf-8').strip().lower()
-        if risposta == 'no':
-            break
-
-    connessione.sendall(f"\nGrazie per aver giocato, {username}! Punteggio finale: {punteggi[username]['punteggio']}".encode('utf-8'))
-    connessione.close()
+        connessione.sendall(
+            f"\nGrazie per aver giocato, {username}! Punteggio finale: {punteggi[username]['punteggio']}\n".encode('utf-8')
+        )
+    except (BrokenPipeError, ConnectionResetError):
+        print(f"Il client {username} ha chiuso la connessione inaspettatamente.")
+    except Exception as e:
+        print(f"Errore durante il gioco con {username}: {e}")
 
 def gestisci_client(connessione, indirizzo):
     print(f"Connessione da {indirizzo}")
-    connessione.sendall("Benvenuto nel gioco! Inserisci il tuo username: ".encode('utf-8'))
-    username = connessione.recv(1024).decode('utf-8').strip().lower()
-
     try:
+        connessione.sendall("Benvenuto nel gioco! Inserisci il tuo username: ".encode('utf-8'))
+        username = connessione.recv(1024).decode('utf-8').strip().lower()
+
         strofe = carica_strofe('song.json')
         punteggi = carica_punteggi('punteggi.json')
 
